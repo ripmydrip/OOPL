@@ -1,0 +1,202 @@
+Main.java
+
+
+
+
+package Inheritance;
+
+public class Main {
+    public static void main(String[] args) {
+        Professor p = new Professor("Aditya","x","DSW1y233","9549040310","adi@gmail.com",19,"03/05/2003",75000,"Information Technology");
+        p.generatePaySlip();
+        AssociateProfessor associateProfessor = new AssociateProfessor("Adi","v","DSW1233","9549040310","adityasanjive@gmail.com",19,"23/04/2003",75000,"Information Technology");
+        associateProfessor.generatePaySlip();
+        AssistantProfessor assistantProfessor = new AssistantProfessor("Raj","e","DSW1233","9549040310","sunandanphalke@gmail.com",19,"23/04/2003",75000,"Information Technology");
+        assistantProfessor.generatePaySlip();
+    }
+}
+
+
+
+
+Person
+
+
+
+
+package Inheritance;
+public class Person {
+    protected String name;
+    protected String employeeId;
+    protected String PAN;
+    protected String mobile;
+    protected String email;
+    protected int age;
+    protected String DOB;
+
+    public Person(String name, String employeeId, String PAN, String mobile, String email, int age, String DOB) {
+        this.name = name;
+        this.employeeId = employeeId;
+        this.PAN = PAN;
+        this.mobile = mobile;
+        this.email = email;
+        this.age = age;
+        this.DOB = DOB;
+    }
+
+    public void displayData(){
+        System.out.println("Name : "+name+"\t DOB : "+DOB);
+        System.out.println("Age : "+age);
+        System.out.println("Employee Id : "+employeeId+"\t PAN : "+PAN);
+        System.out.println("Mobile Number : "+mobile);
+    }
+}
+
+
+
+
+
+
+
+
+Professor
+
+
+
+package Inheritance;
+public class Professor extends Person{
+    private double basicPay;
+    private String department;
+
+    public Professor(String name, String employeeId, String PAN, String mobile, String email, int age, String DOB, double basicPay, String department) {
+        super(name, employeeId, PAN, mobile, email, age, DOB);
+        this.basicPay = basicPay;
+        this.department = department;
+    }
+
+    void generatePaySlip(){
+        displayData();
+        double DA = 1.19*basicPay, HRA = 0.3*basicPay, PF = 0.12*basicPay, SCF = 0.1*basicPay;
+        System.out.println("Department : "+department+"\t Designation : "+((((this.getClass()).toString()).substring(6))));
+        System.out.println("Basic Pay : "+basicPay);
+        System.out.println("-----------------------------------");
+
+        System.out.println("Additives : ");
+        System.out.println("-----------------------------------");
+        System.out.println("Dearness Allowance : "+DA);
+        System.out.println("House Rental Allowance :"+ HRA);
+        double gross = DA+HRA+basicPay;
+        System.out.println("-----------------------------------");
+        System.out.println("Gross Salary : "+gross);
+        System.out.println("-----------------------------------");
+
+        System.out.println("Deductions : ");
+        System.out.println("Provident fund : "+ PF);
+        System.out.println("Staff club fund : "+ SCF);
+        double net = gross - PF - SCF;
+        System.out.println("-----------------------------------");
+        System.out.println("Net Salary : "+net);
+        System.out.println("-----------------------------------");
+
+
+    }
+}
+
+
+
+
+
+
+AssociatePro
+
+
+
+package Inheritance;
+
+public class AssociateProfessor extends Person {
+    private double basicPay;
+    private String department;
+
+    public AssociateProfessor(String name, String employeeId, String PAN, String mobile, String email, int age, String DOB, double basicPay, String department) {
+        super(name, employeeId, PAN, mobile, email, age, DOB);
+        this.basicPay = basicPay;
+        this.department = department;
+    }
+
+    void generatePaySlip(){
+        displayData();
+        double DA = 1.19*basicPay, HRA = 0.3*basicPay, PF = 0.12*basicPay, SCF = 0.1*basicPay;
+        System.out.println("Department : "+department+"\t Designation : "+((((this.getClass()).toString()).substring(6))));
+        System.out.println("Basic Pay : "+basicPay);
+        System.out.println("-----------------------------------");
+
+        System.out.println("Additives : ");
+        System.out.println("-----------------------------------");
+        System.out.println("Dearness Allowance : "+DA);
+        System.out.println("House Rental Allowance :"+ HRA);
+        double gross = DA+HRA+basicPay;
+        System.out.println("-----------------------------------");
+        System.out.println("Gross Salary : "+gross);
+        System.out.println("-----------------------------------");
+
+        System.out.println("Deductions : ");
+        System.out.println("Provident fund : "+ PF);
+        System.out.println("Staff club fund : "+ SCF);
+        double net = gross - PF - SCF;
+        System.out.println("-----------------------------------");
+        System.out.println("Net Salary : "+net);
+        System.out.println("-----------------------------------");
+
+
+    }
+}
+
+
+
+
+
+
+
+AssistantP
+
+
+
+package Inheritance;
+
+public class AssistantProfessor extends Person {
+    private double basicPay;
+    private String department;
+
+    public AssistantProfessor(String name, String employeeId, String PAN, String mobile, String email, int age, String DOB, double basicPay, String department) {
+        super(name, employeeId, PAN, mobile, email, age, DOB);
+        this.basicPay = basicPay;
+        this.department = department;
+    }
+
+    void generatePaySlip(){
+        displayData();
+        double DA = 1.19*basicPay, HRA = 0.3*basicPay, PF = 0.12*basicPay, SCF = 0.1*basicPay;
+        System.out.println("Department : "+department+"\t Designation : "+((((this.getClass()).toString()).substring(6))));
+        System.out.println("Basic Pay : "+basicPay);
+        System.out.println("-----------------------------------");
+
+        System.out.println("Additives : ");
+        System.out.println("-----------------------------------");
+        System.out.println("Dearness Allowance : "+DA);
+        System.out.println("House Rental Allowance :"+ HRA);
+        double gross = DA+HRA+basicPay;
+        System.out.println("-----------------------------------");
+        System.out.println("Gross Salary : "+gross);
+        System.out.println("-----------------------------------");
+
+        System.out.println("Deductions : ");
+        System.out.println("Provident fund : "+ PF);
+        System.out.println("Staff club fund : "+ SCF);
+        double net = gross - PF - SCF;
+        System.out.println("-----------------------------------");
+        System.out.println("Net Salary : "+net);
+        System.out.println("-----------------------------------");
+
+
+    }
+}

@@ -1,0 +1,123 @@
+main
+
+
+
+
+import java.util.Scanner;
+import java.util.concurrent.locks.ReadWriteLock;
+
+public class Main {
+    static Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
+        System.out.println(": Area Calculator :");
+        Shape shape;
+        int input = -1;
+        while (input != 0){
+            System.out.println("1. Area of Circle");
+            System.out.println("2. Area of Triangle");
+            System.out.println("3. Area of Rectangle");
+            input = scanner.nextInt();
+            switch (input){
+                case 0:
+                    break;
+                case 1:
+                    shape = new Circle();
+                    shape.computeArea();
+                    break;
+                case 2 :
+                    shape = new Triangle();
+                    shape.computeArea();
+                    break;
+                case 3:
+                    shape = new Rectangle();
+                    shape.computeArea();
+                    break;
+            }
+
+        }
+    }
+}
+
+
+
+
+shape
+
+
+
+
+public abstract class Shape {
+    protected double x,y;
+
+    abstract void computeArea();
+
+}
+
+
+
+
+
+circle
+
+
+import java.util.Scanner;
+
+public class Circle  extends Shape{
+    static Scanner sc = new Scanner(System.in);
+    @Override
+    void computeArea() {
+        System.out.println("Area : "+(x*x*Math.PI));
+    }
+    public Circle(){
+        System.out.println("Enter radius : ");
+        x = sc.nextDouble();
+    }
+}
+
+
+
+
+
+
+triangle
+
+
+import java.util.Scanner;
+
+public class Triangle extends Shape {
+    static Scanner sc = new Scanner(System.in);
+    @Override
+    void computeArea() {
+        System.out.println("Area : "+(x*y*0.5));
+    }
+    public Triangle(){
+        System.out.println("Enter length of base : ");
+        x = sc.nextDouble();
+        System.out.println("Enter length of height : ");
+        y = sc.nextDouble();
+    }
+}
+
+
+
+
+
+rectangle
+
+
+
+import java.util.Scanner;
+
+public class Rectangle extends Shape {
+    static Scanner sc = new Scanner(System.in);
+    @Override
+    void computeArea() {
+        System.out.println("Area : "+(x*y));
+    }
+    public Rectangle(){
+        System.out.println("Enter length : ");
+        x = sc.nextDouble();
+        System.out.println("Enter breadth : ");
+        y = sc.nextDouble();
+    }
+}
